@@ -3,670 +3,390 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nikhilesh Joshi — Product Manager</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>Nikhilesh Joshi | Product Manager</title>
+  <meta
+    name="description"
+    content="Portfolio of Nikhilesh Joshi - Product Manager focused on AI, fintech, and growth."
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
-      --navy: #0a0e1a;
-      --navy-mid: #111827;
-      --navy-light: #1a2335;
-      --gold: #c9a84c;
-      --gold-light: #e8c96a;
-      --gold-dim: rgba(201,168,76,0.15);
-      --slate: #94a3b8;
-      --white: #f1f5f9;
-      --white-dim: rgba(241,245,249,0.07);
+      --bg: #0d1118;
+      --bg-soft: #121826;
+      --card: #171f30;
+      --ink: #eef2ff;
+      --muted: #9ca8bf;
+      --accent: #f2c265;
+      --accent-soft: rgba(242, 194, 101, 0.16);
+      --line: rgba(242, 194, 101, 0.2);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      background: var(--navy);
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% -10%, rgba(242, 194, 101, 0.18), transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(85, 115, 180, 0.2), transparent 45%),
+        var(--bg);
+      line-height: 1.65;
       overflow-x: hidden;
     }
 
-    /* ── NOISE TEXTURE OVERLAY ── */
     body::before {
-      content: '';
+      content: "";
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
-      z-index: 0;
-      opacity: 0.4;
+      background-image: linear-gradient(transparent 95%, rgba(255, 255, 255, 0.02) 95%);
+      background-size: 100% 18px;
+      opacity: 0.25;
     }
 
-    /* ── NAV ── */
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 6vw;
-      background: rgba(10,14,26,0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(201,168,76,0.12);
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      background: rgba(13, 17, 24, 0.78);
     }
 
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--gold);
-      letter-spacing: 0.02em;
+    .nav-inner {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      color: var(--accent);
       text-decoration: none;
+      letter-spacing: 0.03em;
     }
 
     .nav-links {
-      display: flex;
-      gap: 2.5rem;
       list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--slate);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--gold-light); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 0 6vw;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bg-line {
-      position: absolute;
-      top: 0; right: 12vw;
-      width: 1px;
-      height: 100%;
-      background: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
-      opacity: 0.12;
-    }
-
-    .hero-bg-circle {
-      position: absolute;
-      top: -200px; right: -200px;
-      width: 700px; height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 820px;
-      animation: fadeUp 0.9s ease both;
-    }
-
-    .hero-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .hero-label::before {
-      content: '';
-      display: inline-block;
-      width: 40px; height: 1px;
-      background: var(--gold);
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gold);
-    }
-
-    .hero-tagline {
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
-      color: var(--slate);
-      max-width: 560px;
-      margin-bottom: 2.5rem;
-      font-weight: 400;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 3rem;
-      margin-bottom: 3rem;
-      animation: fadeUp 0.9s 0.2s ease both;
-    }
-
-    .stat-item { }
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--slate);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 0.25rem;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      animation: fadeUp 0.9s 0.35s ease both;
-    }
-
-    .btn-primary {
-      padding: 0.85rem 2rem;
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-
-    .btn-secondary {
-      padding: 0.85rem 2rem;
-      background: transparent;
-      color: var(--white);
-      font-weight: 500;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: 1px solid rgba(241,245,249,0.25);
-      cursor: pointer;
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s, transform 0.2s;
-    }
-
-    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 2.5rem; left: 6vw;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--slate);
-    }
-
-    .scroll-line {
-      width: 40px; height: 1px;
-      background: var(--slate);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .scroll-line::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: var(--gold);
-      animation: slide 2s infinite;
-    }
-
-    /* ── SECTIONS ── */
-    section {
-      padding: 6rem 6vw;
-      position: relative;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-    }
-
-    .section-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--gold);
-      letter-spacing: 0.15em;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, rgba(201,168,76,0.3), transparent);
-    }
-
-    /* ── ABOUT ── */
-    #about { background: var(--navy-mid); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      color: var(--slate);
-      margin-bottom: 1.5rem;
-      font-size: 1.05rem;
-      line-height: 1.85;
-    }
-
-    .about-text strong { color: var(--white); font-weight: 600; }
-
-    .about-extras {
-      border-left: 2px solid var(--gold);
-      padding-left: 2rem;
-    }
-
-    .about-extras h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      color: var(--gold-light);
-    }
-
-    .extra-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .extra-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      margin-top: 0.6rem;
-    }
-
-    .extra-item p {
-      color: var(--slate);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .extra-item p strong { color: var(--white); font-weight: 500; }
-
-    /* ── SKILLS ── */
-    #skills { }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .skill-card {
-      background: var(--navy-light);
-      border: 1px solid rgba(201,168,76,0.1);
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-
-    .skill-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-4px);
-    }
-
-    .skill-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 100%;
-      background: var(--gold);
-    }
-
-    .skill-category {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .skill-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .skill-tag {
-      padding: 0.3rem 0.75rem;
-      background: var(--white-dim);
-      border: 1px solid rgba(241,245,249,0.1);
-      font-size: 0.78rem;
-      color: var(--slate);
-      letter-spacing: 0.03em;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .skill-card:hover .skill-tag {
-      background: var(--gold-dim);
-      color: var(--gold-light);
-      border-color: rgba(201,168,76,0.2);
-    }
-
-    /* ── PROJECTS ── */
-    #projects { background: var(--navy-mid); }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: var(--navy-light);
-      border: 1px solid rgba(201,168,76,0.1);
-      padding: 2.5rem;
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-
-    .project-card:hover {
-      border-color: rgba(201,168,76,0.5);
-      transform: translateY(-4px);
-    }
-
-    .project-card::after {
-      content: '→';
-      position: absolute;
-      top: 2rem; right: 2rem;
-      font-size: 1.2rem;
-      color: var(--gold);
-      opacity: 0;
-      transform: translateX(-8px);
-      transition: opacity 0.3s, transform 0.3s;
-    }
-
-    .project-card:hover::after { opacity: 1; transform: translateX(0); }
-
-    .project-type {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .project-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      line-height: 1.3;
-      margin-bottom: 1rem;
-    }
-
-    .project-card p {
-      color: var(--slate);
-      font-size: 0.92rem;
-      line-height: 1.7;
-    }
-
-    /* ── EXPERIENCE ── */
-    #experience { }
-
-    .exp-item {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 3rem;
-      padding: 3rem 0;
-      border-bottom: 1px solid rgba(241,245,249,0.06);
-    }
-
-    .exp-item:first-of-type { padding-top: 0; }
-    .exp-item:last-of-type { border-bottom: none; }
-
-    .exp-meta { }
-
-    .exp-company {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      margin-bottom: 0.25rem;
-    }
-
-    .exp-badge {
-      display: inline-block;
-      padding: 0.2rem 0.6rem;
-      background: var(--gold-dim);
-      border: 1px solid rgba(201,168,76,0.25);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
-    .exp-period {
-      font-size: 0.8rem;
-      color: var(--slate);
-      letter-spacing: 0.05em;
-    }
-
-    .exp-role {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .exp-desc {
-      color: var(--slate);
-      font-size: 0.95rem;
-      line-height: 1.8;
-    }
-
-    .exp-impact {
-      margin-top: 1.25rem;
-      padding: 1rem 1.5rem;
-      background: var(--gold-dim);
-      border-left: 3px solid var(--gold);
-      font-size: 0.9rem;
-      color: var(--white);
-    }
-
-    /* ── EDUCATION ── */
-    #education { background: var(--navy-mid); }
-
-    .edu-card {
-      background: var(--navy-light);
-      border: 1px solid rgba(201,168,76,0.1);
-      padding: 2.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .edu-degree {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .edu-institution {
-      color: var(--gold-light);
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 0.25rem;
-    }
-
-    .edu-year {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--slate);
-      letter-spacing: 0.1em;
-    }
-
-    .edu-icon {
-      width: 60px; height: 60px;
-      border: 1px solid rgba(201,168,76,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
-
-    /* ── CONTACT ── */
-    #contact { }
-
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-
-    .contact-left h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-left h2 em { font-style: normal; color: var(--gold); }
-
-    .contact-left p {
-      color: var(--slate);
-      font-size: 1rem;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .contact-link {
       display: flex;
       align-items: center;
       gap: 1.25rem;
-      padding: 1.25rem 1.5rem;
-      background: var(--navy-light);
-      border: 1px solid rgba(201,168,76,0.1);
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
       text-decoration: none;
-      color: var(--white);
-      transition: border-color 0.3s, transform 0.2s;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    header.hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding-top: 84px;
+      padding-bottom: 48px;
+    }
+
+    .hero-card {
+      width: 100%;
+      background: linear-gradient(145deg, rgba(23, 31, 48, 0.95), rgba(18, 24, 38, 0.92));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      box-shadow: 0 16px 60px rgba(0, 0, 0, 0.35);
+      animation: rise 0.8s ease both;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 6vw, 4.8rem);
+      line-height: 1.04;
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 0.8rem 1.4rem;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #151920;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+    }
+
+    .btn-ghost {
+      border-color: rgba(238, 242, 255, 0.22);
+      color: var(--ink);
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    main section {
+      padding: 84px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-id {
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.7rem, 3.4vw, 2.7rem);
+    }
+
+    .section-line {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(to right, var(--line), transparent);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.4rem;
+    }
+
+    .panel {
+      background: var(--bg-soft);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.4rem;
+    }
+
+    .panel p {
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .facts {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .fact {
+      padding: 0.8rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--accent-soft);
+      color: #f8e5bf;
+      font-size: 0.95rem;
+    }
+
+    .exp-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .exp-card {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      padding: 1.2rem;
+      background: var(--card);
+    }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .exp-company {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+    }
+
+    .exp-period {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .exp-role {
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: #d9e2f7;
+    }
+
+    .exp-card ul {
+      color: var(--muted);
+      margin-left: 1rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .project {
+      background: linear-gradient(140deg, rgba(23, 31, 48, 0.95), rgba(17, 24, 39, 0.95));
+      border: 1px solid rgba(242, 194, 101, 0.2);
+      border-radius: 14px;
+      padding: 1.2rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: rgba(242, 194, 101, 0.45);
+    }
+
+    .project-type {
+      color: var(--accent);
+      font-size: 0.73rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      background: var(--bg-soft);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 16px;
+      padding: 1.4rem;
+    }
+
+    .contact-copy p {
+      color: var(--muted);
+      margin-top: 0.7rem;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 0.7rem;
+      align-content: start;
+    }
+
+    .contact-link {
+      display: block;
+      text-decoration: none;
+      background: rgba(242, 194, 101, 0.08);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      color: #f6dca9;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, background 0.2s ease;
     }
 
     .contact-link:hover {
-      border-color: var(--gold);
-      transform: translateX(6px);
+      transform: translateX(4px);
+      background: rgba(242, 194, 101, 0.14);
     }
 
-    .contact-link-icon {
-      width: 38px; height: 38px;
-      background: var(--gold-dim);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .contact-link-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--slate);
-      display: block;
-      margin-bottom: 0.1rem;
-    }
-
-    .contact-link-value {
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    /* ── FOOTER ── */
     footer {
-      padding: 2rem 6vw;
-      border-top: 1px solid rgba(241,245,249,0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--slate);
-      font-size: 0.8rem;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slide {
-      0%   { left: -100%; }
-      100% { left: 100%; }
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-size: 0.82rem;
+      padding: 1.2rem 0 2rem;
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
+      transform: translateY(24px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
@@ -675,305 +395,232 @@
       transform: translateY(0);
     }
 
-    /* ── RESPONSIVE ── */
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 900px) {
-      .about-grid, .skills-grid, .projects-grid, .contact-inner {
+      .about-layout,
+      .projects-grid,
+      .contact-box {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
       }
 
-      .exp-item {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+      .nav-links {
+        display: none;
       }
-
-      .nav-links { display: none; }
-
-      .hero-stats { gap: 1.5rem; }
     }
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Nikhilesh Joshi</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-inner">
+      <a class="brand" href="#home">Nikhilesh Joshi</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experiences">Experiences</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-bg-line"></div>
-    <div class="hero-bg-circle"></div>
-    <div class="hero-content">
-      <div class="hero-label">Product Manager · AI-Powered Products</div>
-      <h1>Nikhilesh<br /><em>Joshi.</em></h1>
-      <p class="hero-tagline">Driving growth at the intersection of AI, product thinking, and financial markets. PM @ FrontPage (YC S21).</p>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-number">3+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">8×</div>
-          <div class="stat-label">DAU Growth</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">125K</div>
-          <div class="stat-label">Daily Active Users</div>
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="hero-card">
+        <p class="eyebrow">Product Manager | AI + Fintech</p>
+        <h1>Nikhilesh Joshi</h1>
+        <p class="hero-sub">
+          I build data-driven products that solve real user problems and scale with measurable business impact.
+          Most recently, I worked on growth and AI-first experiences in fintech.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-ghost" href="#contact">Contact Me</a>
+          <a class="btn btn-ghost" href="./resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
         </div>
       </div>
-      <div class="hero-cta">
-        <a href="#projects" class="btn-primary">View My Work</a>
-        <a href="mailto:nikhileshjoshi610@gmail.com" class="btn-secondary">Get In Touch</a>
-      </div>
     </div>
-    <div class="scroll-hint">
-      <div class="scroll-line"></div>
-      Scroll to explore
-    </div>
-  </section>
+  </header>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-header reveal">
-      <span class="section-num">01</span>
-      <h2 class="section-title">About Me</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>I have <strong>3+ years of experience</strong> at a fast-paced YC startup, where I scaled a core B2C Fintech product from <strong>15K to 125K daily active users</strong> — an 8× growth milestone driven by data and product craft.</p>
-        <p>My expertise lies in using <strong>Generative AI</strong> to drive user growth. I build deeply data-driven experiences that solve meaningful problems for users and create tangible business impact.</p>
-        <p>I'm passionate about the intersection of <strong>AI, product thinking, and user psychology</strong>, especially in complex domains like financial markets. I believe in building products that not only grow, but also genuinely improve users' lives by giving them more clarity and confidence.</p>
-      </div>
-      <div class="about-extras reveal">
-        <h3>A Bit More About Me</h3>
-        <div class="extra-item">
-          <div class="extra-dot"></div>
-          <p>I'm a <strong>problem solver</strong> who gets excited by messy, real-world problems.</p>
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-id">01</span>
+          <h2>About Me</h2>
+          <div class="section-line"></div>
         </div>
-        <div class="extra-item">
-          <div class="extra-dot"></div>
-          <p>I bring a <strong>first-principles, systems-level lens</strong> to my work — shaped by a varied background across stock research, sales, and product.</p>
-        </div>
-        <div class="extra-item">
-          <div class="extra-dot"></div>
-          <p>Lately, I'm deep-diving into <strong>AI and building hands-on projects</strong> at the intersection of intelligent systems and finance.</p>
-        </div>
-        <div class="extra-item">
-          <div class="extra-dot"></div>
-          <p>I thrive in <strong>high-ownership environments</strong> — fast to learn, faster to execute.</p>
-        </div>
-        <div class="extra-item">
-          <div class="extra-dot"></div>
-          <p>Outside work: learning to surf, solo backpacking, and picking up musical instruments — <strong>diverse experiences fuel creative problem-solving.</strong></p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-header reveal">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Skills</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card reveal">
-        <div class="skill-category">Core Domain</div>
-        <h3>Product &amp; Growth</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Product Strategy</span>
-          <span class="skill-tag">A/B Testing</span>
-          <span class="skill-tag">Stakeholder Management</span>
-          <span class="skill-tag">Market Research</span>
-          <span class="skill-tag">Critical Thinking</span>
+        <div class="about-layout">
+          <article class="panel reveal">
+            <p>
+              I am a Product Manager with 3+ years of experience working in high-speed startup environments. My work sits at the
+              intersection of product strategy, user psychology, and financial technology.
+            </p>
+            <p>
+              I enjoy turning messy problems into simple product experiences. My process is rooted in clear thinking, fast testing,
+              and close collaboration with engineering and design.
+            </p>
+            <p>
+              I am currently focused on using AI to improve user journeys, reduce support friction, and create products people
+              return to every day.
+            </p>
+          </article>
+
+          <aside class="facts reveal">
+            <div class="fact"><strong>3+ years</strong> in product and growth</div>
+            <div class="fact"><strong>8x DAU growth</strong> from 15K to 125K users</div>
+            <div class="fact"><strong>Domain</strong>: AI, Fintech, User Growth</div>
+            <div class="fact"><strong>Strength</strong>: first-principles product thinking</div>
+          </aside>
         </div>
       </div>
-      <div class="skill-card reveal">
-        <div class="skill-category">Technical</div>
-        <h3>AI &amp; Technical</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">API Integration</span>
-          <span class="skill-tag">Prompt Engineering</span>
-          <span class="skill-tag">Amplitude</span>
-          <span class="skill-tag">n8n</span>
+    </section>
+
+    <section id="experiences">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-id">02</span>
+          <h2>Experiences</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="exp-list">
+          <article class="exp-card reveal">
+            <div class="exp-top">
+              <h3 class="exp-company">FrontPage (YC S21)</h3>
+              <span class="exp-period">~3 years</span>
+            </div>
+            <p class="exp-role">Product Manager</p>
+            <ul>
+              <li>Owned product strategy and execution for a core B2C fintech product.</li>
+              <li>Scaled daily active users from 15,000 to 125,000 through product experiments and iteration.</li>
+              <li>Worked with engineering, design, and data teams to launch AI-assisted product and support workflows.</li>
+              <li><strong>What I learned:</strong> growth comes from disciplined experimentation and deep user understanding.</li>
+            </ul>
+          </article>
+
+          <article class="exp-card reveal">
+            <div class="exp-top">
+              <h3 class="exp-company">Equity Research & Sales</h3>
+              <span class="exp-period">Earlier Role</span>
+            </div>
+            <p class="exp-role">Research and Client-Facing Work</p>
+            <ul>
+              <li>Analyzed businesses and market behavior using first-principles reasoning.</li>
+              <li>Built communication skills through client conversations and sales discussions.</li>
+              <li>Developed a strong foundation in financial markets and decision-making under uncertainty.</li>
+              <li><strong>What I learned:</strong> clear analysis and clear communication are equally important.</li>
+            </ul>
+          </article>
         </div>
       </div>
-      <div class="skill-card reveal">
-        <div class="skill-category">Creative</div>
-        <h3>Design &amp; UX</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Figma</span>
-          <span class="skill-tag">Wireframes</span>
-          <span class="skill-tag">User Personas</span>
-          <span class="skill-tag">User Empathy</span>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-id">03</span>
+          <h2>Projects</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project reveal">
+            <p class="project-type">Product @ FrontPage</p>
+            <h3>TradeLab Scaling</h3>
+            <p>
+              Drove strategy and prioritization to improve onboarding, activation, and retention on a virtual brokerage product.
+            </p>
+          </article>
+
+          <article class="project reveal">
+            <p class="project-type">AI Product Initiative</p>
+            <h3>AI Support Agent</h3>
+            <p>
+              Built an AI-powered support flow to automate repetitive queries and improve resolution speed for users.
+            </p>
+          </article>
+
+          <article class="project reveal">
+            <p class="project-type">Independent Research</p>
+            <h3>Delhivery Analysis</h3>
+            <p>
+              Performed detailed equity research on business model, market structure, and valuation for a long-term thesis.
+            </p>
+          </article>
+
+          <article class="project reveal">
+            <p class="project-type">Published Insights</p>
+            <h3>ValuePickr Writeups</h3>
+            <p>
+              Published market and stock insights with a structured, data-backed framework for decision making.
+            </p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-header reveal">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Projects</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="projects-grid">
-      <div class="project-card reveal">
-        <div class="project-type">Product @ FrontPage</div>
-        <h3>Scaling TradeLab: A Virtual Brokerage Platform</h3>
-        <p>Led product strategy and execution to grow a virtual brokerage platform, crafting immersive trading experiences that drove significant user engagement and retention.</p>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-type">Product @ FrontPage</div>
-        <h3>Building an AI-Powered Support Agent</h3>
-        <p>Designed and launched an intelligent support agent using Generative AI to automate user resolution workflows, reducing support load while improving customer satisfaction.</p>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-type">Independent Research</div>
-        <h3>Delhivery Stock: Detailed Analysis</h3>
-        <p>Conducted an in-depth equity analysis of Delhivery, examining logistics fundamentals, competitive moat, and financial health to produce a comprehensive investment thesis.</p>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-type">Independent Research</div>
-        <h3>ValuePickr: My Insights on Market &amp; Stocks</h3>
-        <p>Published original market research and stock analysis on ValuePickr, building a track record of rigorous, data-backed insights on Indian equities.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-header reveal">
-      <span class="section-num">04</span>
-      <h2 class="section-title">Experience</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="exp-item reveal">
-      <div class="exp-meta">
-        <div class="exp-company">FrontPage</div>
-        <div class="exp-badge">YC S21</div>
-        <div class="exp-period">3+ Years</div>
-      </div>
-      <div class="exp-body">
-        <div class="exp-role">Product Manager</div>
-        <p class="exp-desc">Owned end-to-end product for a core B2C Fintech platform, from discovery through launch and growth. Collaborated with engineering, design, and data teams to ship features that meaningfully moved user metrics. Championed an AI-first approach to product development, integrating Generative AI across user-facing and operational workflows.</p>
-        <div class="exp-impact">
-          📈 Scaled daily active users from <strong>15,000 → 125,000</strong> — an 8× growth — through data-driven product decisions and continuous experimentation.
+    <section id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-id">04</span>
+          <h2>Contact Info</h2>
+          <div class="section-line"></div>
         </div>
-      </div>
-    </div>
-    <div class="exp-item reveal">
-      <div class="exp-meta">
-        <div class="exp-company">Stock Research</div>
-        <div class="exp-badge">Prev. Role</div>
-        <div class="exp-period">Pre-FrontPage</div>
-      </div>
-      <div class="exp-body">
-        <div class="exp-role">Equity Research & Sales</div>
-        <p class="exp-desc">Built a strong foundation in financial analysis, equity research, and client-facing sales. Developed a first-principles, systems-level approach to problem solving — skills that directly inform product decisions today.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-header reveal">
-      <span class="section-num">05</span>
-      <h2 class="section-title">Education</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="edu-card reveal">
-      <div>
-        <div class="edu-degree">Bachelor's Degree</div>
-        <div class="edu-institution">University — India</div>
-        <div class="edu-year">Graduated · Pre-2022</div>
-      </div>
-      <div class="edu-icon">🎓</div>
-    </div>
-    <p style="margin-top:1.5rem; color: var(--slate); font-size:0.85rem; font-style:italic;">* Detailed education info not listed in source — update with your actual degree, university, and year.</p>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-inner">
-      <div class="contact-left reveal">
-        <h2>Let's build something <em>great</em> together.</h2>
-        <p>Whether you want to talk product strategy, AI, fintech, or just connect — my inbox is always open.</p>
-        <a href="mailto:nikhileshjoshi610@gmail.com" class="btn-primary">Send Me an Email</a>
-      </div>
-      <div class="contact-links reveal">
-        <a href="mailto:nikhileshjoshi610@gmail.com" class="contact-link">
-          <div class="contact-link-icon">✉️</div>
-          <div>
-            <span class="contact-link-label">Email</span>
-            <span class="contact-link-value">nikhileshjoshi610@gmail.com</span>
+        <div class="contact-box reveal">
+          <div class="contact-copy">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem;">Let&apos;s connect.</h3>
+            <p>
+              If you are building in AI, fintech, or product growth and want to collaborate, feel free to reach out.
+            </p>
           </div>
-        </a>
-        <a href="https://www.linkedin.com/in/nikhileshjoshi" target="_blank" class="contact-link">
-          <div class="contact-link-icon">💼</div>
-          <div>
-            <span class="contact-link-label">LinkedIn</span>
-            <span class="contact-link-value">Connect with me</span>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:nikhileshjoshi610@gmail.com">nikhileshjoshi610@gmail.com</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/nikhileshjoshi" target="_blank" rel="noreferrer">LinkedIn: nikhileshjoshi</a>
+            <a
+              class="contact-link"
+              href="https://nikhileshjoshi.notion.site/Nikhilesh-Joshi-12c07323fe21802190e7deb4e90d5f54"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Notion Portfolio
+            </a>
           </div>
-        </a>
-        <a href="https://nikhileshjoshi.notion.site/Nikhilesh-Joshi-12c07323fe21802190e7deb4e90d5f54" target="_blank" class="contact-link">
-          <div class="contact-link-icon">📝</div>
-          <div>
-            <span class="contact-link-label">Notion Portfolio</span>
-            <span class="contact-link-value">View original portfolio</span>
-          </div>
-        </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
   <footer>
-    <span>© 2025 Nikhilesh Joshi. All rights reserved.</span>
-    <span style="color: var(--gold); font-family: 'DM Mono', monospace; font-size:0.7rem; letter-spacing:0.1em;">PM · AI · FINTECH</span>
+    <div class="container">
+      <p>&copy; 2026 Nikhilesh Joshi. All rights reserved.</p>
+    </div>
   </footer>
 
   <script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, idx) => {
+          if (!entry.isIntersecting) return;
+          setTimeout(() => entry.target.classList.add("visible"), idx * 80);
           observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+        });
+      },
+      { threshold: 0.12 }
+    );
 
-    reveals.forEach(el => observer.observe(el));
-
-    // Nav active state
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(sec => {
-        if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
-      });
-      navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--gold-light)' : '';
-      });
-    });
+    reveals.forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
